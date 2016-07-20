@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="DBWin" representedClassName="DBWin" syncable="YES">
+        <attribute name="blueNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redNumber1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redNumber2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redNumber3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redNumber4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="redNumber5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="winData" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DBWin" positionX="-63" positionY="-18" width="128" height="150"/>
+    </elements>
+</model>
