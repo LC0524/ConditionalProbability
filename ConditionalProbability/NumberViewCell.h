@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBWin.h"
+
+@protocol TextInputFinistDelegate <NSObject>
+
+- (void)currentTextInputFinishWithTextFiled:(UITextField *)textField;
+
+@end
 
 typedef NS_ENUM(NSInteger,CellType)
 {
@@ -18,5 +25,7 @@ typedef NS_ENUM(NSInteger,CellType)
 @interface NumberViewCell : UITableViewCell
 
 @property (assign,nonatomic) CellType currentCellType;
+@property (weak, nonatomic) id<TextInputFinistDelegate>delegate;
+@property (strong, nonatomic) DBWin *currentWin;
 
 @end

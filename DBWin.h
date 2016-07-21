@@ -2,7 +2,7 @@
 //  DBWin.h
 //  ConditionalProbability
 //
-//  Created by Lc on 16/7/20.
+//  Created by liuchao on 16/7/21.
 //  Copyright © 2016年 Lc. All rights reserved.
 //
 

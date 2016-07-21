@@ -2,7 +2,7 @@
 //  DBWin+CoreDataProperties.m
 //  ConditionalProbability
 //
-//  Created by Lc on 16/7/20.
+//  Created by liuchao on 16/7/21.
 //  Copyright © 2016年 Lc. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -13,12 +13,13 @@
 
 @implementation DBWin (CoreDataProperties)
 
-@dynamic winData;
+@dynamic blueNumber;
 @dynamic redNumber1;
 @dynamic redNumber2;
 @dynamic redNumber3;
 @dynamic redNumber4;
 @dynamic redNumber5;
-@dynamic blueNumber;
+@dynamic winData;
+@dynamic redNumber6;
 
 @end

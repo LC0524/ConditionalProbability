@@ -15,10 +15,10 @@
 		4B2530721D3FB49100846AEC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2530711D3FB49100846AEC /* DataManager.m */; };
 		4B2530741D3FB6DB00846AEC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B2530731D3FB6DB00846AEC /* CoreData.framework */; };
 		4B2530781D3FB90F00846AEC /* database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4B2530761D3FB90F00846AEC /* database.xcdatamodeld */; };
-		4B25307E1D3FBD1600846AEC /* DBWin+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B25307B1D3FBD1600846AEC /* DBWin+CoreDataProperties.m */; };
-		4B25307F1D3FBD1600846AEC /* DBWin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B25307D1D3FBD1600846AEC /* DBWin.m */; };
 		4B2530821D3FBE0800846AEC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2530811D3FBE0800846AEC /* MainViewController.m */; };
 		4B2530851D3FBF5C00846AEC /* NumberViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B2530841D3FBF5C00846AEC /* NumberViewCell.m */; };
+		A87AE8831D4068C600489E19 /* DBWin+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A87AE8801D4068C600489E19 /* DBWin+CoreDataProperties.m */; };
+		A87AE8841D4068C600489E19 /* DBWin.m in Sources */ = {isa = PBXBuildFile; fileRef = A87AE8821D4068C600489E19 /* DBWin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,14 +35,14 @@
 		4B2530731D3FB6DB00846AEC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4B2530771D3FB90F00846AEC /* database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = database.xcdatamodel; sourceTree = "<group>"; };
 		4B2530791D3FBC8000846AEC /* database111.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = database111.xcdatamodel; sourceTree = "<group>"; };
-		4B25307A1D3FBD1600846AEC /* DBWin+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DBWin+CoreDataProperties.h"; sourceTree = "<group>"; };
-		4B25307B1D3FBD1600846AEC /* DBWin+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DBWin+CoreDataProperties.m"; sourceTree = "<group>"; };
-		4B25307C1D3FBD1600846AEC /* DBWin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBWin.h; sourceTree = "<group>"; };
-		4B25307D1D3FBD1600846AEC /* DBWin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBWin.m; sourceTree = "<group>"; };
 		4B2530801D3FBE0800846AEC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		4B2530811D3FBE0800846AEC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4B2530831D3FBF5C00846AEC /* NumberViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberViewCell.h; sourceTree = "<group>"; };
 		4B2530841D3FBF5C00846AEC /* NumberViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberViewCell.m; sourceTree = "<group>"; };
+		A87AE87F1D4068C600489E19 /* DBWin+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DBWin+CoreDataProperties.h"; path = "../DBWin+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A87AE8801D4068C600489E19 /* DBWin+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DBWin+CoreDataProperties.m"; path = "../DBWin+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A87AE8811D4068C600489E19 /* DBWin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBWin.h; path = ../DBWin.h; sourceTree = "<group>"; };
+		A87AE8821D4068C600489E19 /* DBWin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBWin.m; path = ../DBWin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +106,10 @@
 			children = (
 				4B2530701D3FB49100846AEC /* DataManager.h */,
 				4B2530711D3FB49100846AEC /* DataManager.m */,
-				4B25307A1D3FBD1600846AEC /* DBWin+CoreDataProperties.h */,
-				4B25307B1D3FBD1600846AEC /* DBWin+CoreDataProperties.m */,
-				4B25307C1D3FBD1600846AEC /* DBWin.h */,
-				4B25307D1D3FBD1600846AEC /* DBWin.m */,
+				A87AE87F1D4068C600489E19 /* DBWin+CoreDataProperties.h */,
+				A87AE8801D4068C600489E19 /* DBWin+CoreDataProperties.m */,
+				A87AE8811D4068C600489E19 /* DBWin.h */,
+				A87AE8821D4068C600489E19 /* DBWin.m */,
 				4B2530761D3FB90F00846AEC /* database.xcdatamodeld */,
 			);
 			name = DataManager;
@@ -195,11 +195,11 @@
 			files = (
 				4B2530721D3FB49100846AEC /* DataManager.m in Sources */,
 				4B25305D1D3FB43500846AEC /* AppDelegate.m in Sources */,
-				4B25307F1D3FBD1600846AEC /* DBWin.m in Sources */,
 				4B2530781D3FB90F00846AEC /* database.xcdatamodeld in Sources */,
 				4B2530821D3FBE0800846AEC /* MainViewController.m in Sources */,
-				4B25307E1D3FBD1600846AEC /* DBWin+CoreDataProperties.m in Sources */,
 				4B25305A1D3FB43500846AEC /* main.m in Sources */,
+				A87AE8831D4068C600489E19 /* DBWin+CoreDataProperties.m in Sources */,
+				A87AE8841D4068C600489E19 /* DBWin.m in Sources */,
 				4B2530851D3FBF5C00846AEC /* NumberViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +349,7 @@
 				4B25306E1D3FB43600846AEC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
