@@ -76,29 +76,29 @@
             if (i == 6)
             {
                 label.backgroundColor = [UIColor blueColor];
-                label.text = self.currentWin.blueNumber;
+                label.text = self.dic[@"blueNumber"];
             }
             else
             {
                 switch (i)
                 {
                     case 0:
-                    label.text = self.currentWin.redNumber1;
+                    label.text = self.dic[@"redNumber1"];
                         break;
                     case 1:
-                    label.text = self.currentWin.redNumber2;
+                    label.text = self.dic[@"redNumber2"];
                         break;
                     case 2:
-                    label.text = self.currentWin.redNumber3;
+                    label.text = self.dic[@"redNumber3"];
                         break;
                     case 3:
-                    label.text = self.currentWin.redNumber4;
+                    label.text = self.dic[@"redNumber4"];
                         break;
                     case 4:
-                    label.text = self.currentWin.redNumber5;
+                    label.text = self.dic[@"redNumber5"];
                         break;
                     case 5:
-                    label.text = self.currentWin.redNumber6;
+                    label.text = self.dic[@"redNumber6"];
                         break;
                     default:
                         break;

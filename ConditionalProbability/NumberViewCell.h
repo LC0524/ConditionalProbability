@@ -26,6 +26,6 @@ typedef NS_ENUM(NSInteger,CellType)
 
 @property (assign,nonatomic) CellType currentCellType;
 @property (weak, nonatomic) id<TextInputFinistDelegate>delegate;
-@property (strong, nonatomic) DBWin *currentWin;
+@property (strong,nonatomic) NSDictionary *dic;
 
 @end

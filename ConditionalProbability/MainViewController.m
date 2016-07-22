@@ -24,7 +24,6 @@
 {
     [super viewDidLoad];
     self.navigationController.hidesBarsOnSwipe = YES;
-    [self recommendedNumberToday];
 }
 
 - (NSMutableDictionary *)numberDic
@@ -76,18 +75,31 @@
     cell.delegate = self;
     // Configure the cell...
     if (indexPath.section == 0 && indexPath.row == 0)
+    {
+        cell.dic = [self recommendedNumberToday];
         cell.currentCellType = NUMBER_TODAY;
+    }
     else if (indexPath.section == 1 && indexPath.row == 0)
         cell.currentCellType = NUMBER_INPUT;
     else
     {
-        cell.currentWin = self.beforeArray[indexPath.row];
+        cell.dic = [self currentDicWith:self.beforeArray[indexPath.row]];
         cell.currentCellType = NUMBER_BEFORE;
     }
     
     return cell;
 }
-
+- (NSDictionary *)currentDicWith:(DBWin *)win
+{
+    NSDictionary *finishDic = @{@"redNumber1":win.redNumber1,
+                                @"redNumber2":win.redNumber2,
+                                @"redNumber3":win.redNumber3,
+                                @"redNumber4":win.redNumber4,
+                                @"redNumber5":win.redNumber5,
+                                @"redNumber6":win.redNumber6,
+                                @"blueNumber":win.blueNumber};
+    return finishDic;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [UIScreen mainScreen].bounds.size.width/7;
@@ -143,6 +155,7 @@
         [[DataManager defaultInstance] saveContext];
         [_beforeArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
     }
 }
 
@@ -184,9 +197,12 @@
     return haveFree;
 }
 
-- (NSMutableDictionary *)recommendedNumberToday
+- (NSDictionary *)recommendedNumberToday
 {
     NSArray *allNumberArray = [[DataManager defaultInstance] arrayFromCoreData:@"DBWin" predicate:nil limit:NSIntegerMax offset:0 orderBy:nil];
+    if (allNumberArray == nil || allNumberArray.count <= 0)
+        return nil;
+    
     NSMutableArray *redarray = [NSMutableArray array];
     NSMutableArray *bluearray = [NSMutableArray array];
     
@@ -200,46 +216,89 @@
         [redarray addObject:wins.redNumber6];
         [bluearray addObject:wins.blueNumber];
     }
+    
+    NSMutableDictionary *dic = [self filterArrayByArray:redarray];
+    NSArray *red = [self getMyNumberWithNumber:dic withCount:6];
+    
+    NSMutableDictionary *bluedic = [self filterArrayByArray:bluearray];
+    NSArray *blue = [self getMyNumberWithNumber:bluedic withCount:1];
+    
+    NSDictionary *finishDic = @{@"redNumber1":red[0],
+                          @"redNumber2":red[1],
+                          @"redNumber3":red[2],
+                          @"redNumber4":red[3],
+                          @"redNumber5":red[4],
+                          @"redNumber6":red[5],
+                          @"blueNumber":blue[0]};
+
+    
+    return finishDic;
+}
+
+- (NSMutableDictionary *)filterArrayByArray:(NSMutableArray *)array
+{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    NSLog(@"___________%@",redarray);
-    for (int i = 0; i < redarray.count; i ++)
+    NSLog(@"___________%@",array);
+    for (int i = 0; i < array.count; i ++)
     {
-        NSString *string1 = redarray[i];
+        NSString *string1 = array[i];
         NSMutableArray *tempArray = [NSMutableArray array];
         [tempArray addObject:string1];
-        for (int j = i + 1; j < redarray.count; j++)
+        for (int j = i + 1; j < array.count; j++)
         {
-            NSString *string2 = redarray[j];
+            NSString *string2 = array[j];
             
             if ([string1 isEqualToString:string2])
             {
                 [tempArray addObject:string2];
-                [redarray removeObject:string2];
+                [array removeObject:string2];
                 j = j -1;
                 i = i -1;
             }
         }
         if (tempArray.count == 1)
         {
-            [redarray removeObject:string1];
+            [array removeObject:string1];
             i = i -1;
         }
-        [dic setValue:tempArray forKey:tempArray[0]];
+        [dic setValue:[NSString stringWithFormat:@"%ld",tempArray.count]forKey:tempArray[0]];
+    }
+    return dic;
+}
+
+- (NSArray *)getMyNumberWithNumber:(NSMutableDictionary *)dic withCount:(int)count
+{
+    NSLog(@"_____________dic=== %@",dic);
+    NSArray *allValue = [dic allValues];
+    NSMutableArray *allkey = [NSMutableArray arrayWithArray:[dic allKeys]];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];
+    NSArray *tempArray = [NSMutableArray arrayWithArray:[allValue sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]]];
+    if (count == 1)
+        return @[allkey[0]];
+    
+    NSMutableArray *Array = [NSMutableArray array];
+    
+    for (int i = 0; i < tempArray.count; i ++)
+    {
+        if (Array.count == count)
+            return Array;
+        
+        NSString *value = tempArray[i];
+        for (int j = 0; j < allkey.count; j ++)
+        {
+            NSString *key = allkey[j];
+            if ([value isEqualToString:[dic objectForKey:key]])
+            {
+                [Array addObject:key];
+                [allkey removeObject:key];
+                j = j -1;
+                break;
+            }
+        }
     }
     
-    NSArray *allKey = [dic allValues];
-    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:nil ascending:NO];
-//    NSArray *tempArray = [allKey sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
-    
-//    win.redNumber1 = tempArray[0];
-//    win.redNumber2 = tempArray[1];
-//    win.redNumber3 = tempArray[2];
-//    win.redNumber4 = tempArray[3];
-//    win.redNumber5 = tempArray[4];
-//    win.redNumber6 = tempArray[5];
+    return Array;
 
-    
-    return nil;
 }
 /*
 // Override to support conditional editing of the table view.
